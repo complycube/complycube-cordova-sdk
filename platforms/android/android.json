@@ -1,0 +1,51 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "app/src/main/AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application": [
+            {
+              "xml": "<activity android:exported=\"true\" android:label=\"ComplyCube Activity\" android:name=\"com.plugin.complycube.ComplyCubeActivitySDK\"><intent-filter><action android:name=\"com.plugin.complycube.ComplyCubeActivitySDK\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "res/xml/config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"ComplyCube\"><param name=\"android-package\" value=\"com.plugin.complycube.ComplyCubeBridge\" /><param name=\"android-package-ComplyCubeActivitySDK\" value=\"com.plugin.complycube.ComplyCubeActivitySDK\" /><param name=\"android-package-SettingsManager\" value=\"com.plugin.complycube.SettingsManager\" /><param name=\"android-package-ComplyCubeActivity\" value=\"com.plugin.complycube.ComplyCubeActivity\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "complycube-sdk-cordova": {
+      "PACKAGE_NAME": "com.complycube.cordovasample"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "complycube-sdk-cordova.ComplyCube",
+      "file": "plugins/complycube-sdk-cordova/www/complycube.js",
+      "pluginId": "complycube-sdk-cordova",
+      "clobbers": [
+        "complycube",
+        "cordova.plugins.complycube",
+        "plugin.complycube"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "complycube-sdk-cordova": "1.1.5"
+  }
+}

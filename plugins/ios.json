@@ -1,0 +1,15 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "complycube-sdk-cordova": {
+      "PACKAGE_NAME": "com.complycube.cordovasample"
+    }
+  },
+  "dependent_plugins": {}
+}

@@ -1,0 +1,25 @@
+{
+    "declarations": {
+        "use_frameworks!": {
+            "declaration": "use_frameworks!",
+            "count": 1
+        }
+    },
+    "sources": {
+        "https://cdn.cocoapods.org/": {
+            "source": "https://cdn.cocoapods.org/",
+            "count": 1
+        },
+        "https://complycuberepo.jfrog.io/artifactory/api/pods/cc-cocoapods-release-local": {
+            "source": "https://complycuberepo.jfrog.io/artifactory/api/pods/cc-cocoapods-release-local",
+            "count": 1
+        }
+    },
+    "libraries": {
+        "ComplyCubeMobileSDK": {
+            "name": "ComplyCubeMobileSDK",
+            "spec": "",
+            "count": 1
+        }
+    }
+}

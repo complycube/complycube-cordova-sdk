@@ -1,0 +1,10 @@
+{
+  "complycube-sdk-cordova": {
+    "source": {
+      "type": "registry",
+      "id": "@complycube/cordova-plugin"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

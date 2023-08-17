@@ -1,0 +1,22 @@
+{
+  "name": "@complycube/cordova-plugin",
+  "version": "1.2.5",
+  "cordova": {
+    "id": "complycube-sdk-cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "description": "ComplyCube SDK Cordova",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/complycube/complycube-sdk-cordova"
+  },
+  "publishConfig":{"registry":"https://complycuberepo.jfrog.io/artifactory/api/npm/cc-cordova-dev-npm-local/"},
+  "keywords": [
+    "complycube",
+    "complycube-cordova"
+  ],
+  "license": "MIT"
+}

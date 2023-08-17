@@ -1,0 +1,23 @@
+apply plugin: 'com.jfrog.artifactory'
+
+repositories {
+  jcenter()
+  mavenCentral()
+  artifactory {
+        contextUrl = "https://complycuberepo.jfrog.io/artifactory"
+        //The base Artifactory URL if not overridden by the publisher/resolver
+        resolve {
+            repository {
+                repoKey = 'cc-gradle-release-local'
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+                maven = true
+            }
+        }
+    }
+}
+
+dependencies {
+  implementation "com.complycube:sdk:+" // jfrog
+
+}

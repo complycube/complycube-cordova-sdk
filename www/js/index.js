@@ -23,7 +23,40 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
-
+    setTimeout(() => {
+        const settings = {
+            clientID: '<CLIENT_ID>',
+            clientToken: '<TOKEN>',
+            stages: [
+            {
+                name: 'intro',
+                heading: 'Am from Cordova',
+                message: 'A message for our users',
+            },
+            {
+                name: 'documentCapture',
+                documentTypes: {
+                passport: true,
+                national_identity_card: ['GB', 'FR', 'DZ'],
+                },
+            },
+            'faceCapture',
+            ],
+            scheme: {
+              // primaryButtonBgColor: '#FFFFFF',
+            },
+        }
+        console.log("ana javascript");
+        cordova.exec(function(winParam) {
+            console.log("ComplyCube success", winParam);
+        },
+                    function(error) {
+                        console.log("Complycube error", Object.keys(error));
+                    },
+                    "ComplyCube",
+                    "mount",
+                    [settings]);
+    }, 2000);
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }

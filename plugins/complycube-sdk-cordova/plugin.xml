@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="complycube-sdk-cordova"
+        version="1.1.5">
+    <name>ComplyCube</name>
+    <description>Cordova plugin for ComplyCube</description>
+    <license>MIT</license>
+    <keywords>complycube,complycube-cordova</keywords>
+    <repo>https://github.com/complycube/complycube-sdk-cordova.git</repo>
+
+    <!-- <engines>
+      <engine name="cordova" version=">=6.4.0" />
+      <engine name="cordova-android" version=">=4.0.0" />
+      <engine name="cordova-ios" version=">=4.3.1" />
+    </engines> -->
+
+    <js-module name="ComplyCube" src="www/complycube.js">
+        <clobbers target="complycube"/>
+        <clobbers target="cordova.plugins.complycube"/>
+        <clobbers target="plugin.complycube"/>
+    </js-module>
+
+    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
+        <activity android:name="com.plugin.complycube.ComplyCubeActivitySDK" android:label="ComplyCube Activity" android:exported="true">
+            <intent-filter>
+                <action android:name="com.plugin.complycube.ComplyCubeActivitySDK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </config-file>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ComplyCube">
+                <param name="android-package" value="com.plugin.complycube.ComplyCubeBridge" />
+                <param name="android-package-ComplyCubeActivitySDK" value="com.plugin.complycube.ComplyCubeActivitySDK" />
+                <param name="android-package-SettingsManager" value="com.plugin.complycube.SettingsManager" />
+                <param name="android-package-ComplyCubeActivity" value="com.plugin.complycube.ComplyCubeActivity" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/ComplyCubeBridge.java" target-dir="src/com/plugin/complycube"/>
+        <source-file src="src/android/ComplyCubeActivity.java" target-dir="src/com/plugin/complycube"/>
+        <source-file src="src/android/SettingsManager.kt" target-dir="../main/java/com/plugin/complycube"/>
+        <source-file src="src/android/ComplyCubeActivitySDK.kt" target-dir="../main/java/com/plugin/complycube"/>
+
+        <framework src="src/android/complycube.gradle" custom="true" type="gradleReference"/>
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ComplyCube">
+                <param name="ios-package" value="ComplyCubeBridge"/>
+            </feature>
+            <preference name="deployment-target" value="13.0" />
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Required for document and facial capture</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>Required for video capture</string>
+        </config-file>
+
+        <header-file src="src/ios/ComplyCubeBridge.h"/>
+        <header-file src="src/ios/ComplyCube-Bridging-Header.h"/>
+        <source-file src="src/ios/ComplyCubeBridge.m"/>
+        <source-file src="src/ios/ComplyCubeC.swift"/>
+        <source-file src="src/ios/settingsManager.swift"/>
+        <source-file src="src/ios/SchemeColorManager.swift"/>
+        <source-file src="src/ios/ComplyCubeRNSDK.swift"/>
+
+        <pods-config ios-min-version="12.1" use-frameworks="true"/>
+        
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/" />
+                <source url="https://complycuberepo.jfrog.io/artifactory/api/pods/cc-cocoapods-release-local"/>
+            </config>
+            <pods use-frameworks="true" >
+                <pod name="ComplyCubeMobileSDK" spec="" />
+            </pods>
+        </podspec>
+    </platform>
+</plugin>

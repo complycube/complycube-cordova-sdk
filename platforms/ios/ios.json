@@ -1,0 +1,71 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "app/src/main/AndroidManifest.xml": {
+        "parents": {
+          "/manifest/application": [
+            {
+              "xml": "<activity android:exported=\"true\" android:label=\"ComplyCube Activity\" android:name=\"com.plugin.complycube.ComplyCubeActivitySDK\"><intent-filter><action android:name=\"com.plugin.complycube.ComplyCubeActivitySDK\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"ComplyCube\"><param name=\"ios-package\" value=\"ComplyCubeBridge\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"deployment-target\" value=\"13.0\" />",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "NSCameraUsageDescription": [
+            {
+              "xml": "<string>Required for document and facial capture</string>",
+              "count": 1
+            }
+          ],
+          "NSMicrophoneUsageDescription": [
+            {
+              "xml": "<string>Required for video capture</string>",
+              "count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "complycube-sdk-cordova": {
+      "PACKAGE_NAME": "com.complycube.cordovasample"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "complycube-sdk-cordova.ComplyCube",
+      "file": "plugins/complycube-sdk-cordova/www/complycube.js",
+      "pluginId": "complycube-sdk-cordova",
+      "clobbers": [
+        "complycube",
+        "cordova.plugins.complycube",
+        "plugin.complycube"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "complycube-sdk-cordova": "1.1.5"
+  }
+}
