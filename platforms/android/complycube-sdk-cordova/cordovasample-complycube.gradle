@@ -19,5 +19,5 @@ repositories {
 
 dependencies {
   implementation "com.complycube:sdk:+" // jfrog
-
+  implementation 'com.google.code.gson:gson:+'
 }
