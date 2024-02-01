@@ -23,40 +23,38 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
-    setTimeout(() => {
-        const settings = {
-            clientID: '<CLIENT_ID>',
-            clientToken: '<TOKEN>',
-            stages: [
-            {
-                name: 'intro',
-                heading: 'Am from Cordova',
-                message: 'A message for our users',
-            },
-            {
-                name: 'documentCapture',
-                documentTypes: {
-                passport: true,
-                national_identity_card: ['GB', 'FR', 'DZ'],
-                },
-            },
-            'faceCapture',
-            ],
-            scheme: {
-              // primaryButtonBgColor: '#FFFFFF',
-            },
-        }
-        console.log("ana javascript");
-        cordova.exec(function(winParam) {
-            console.log("ComplyCube success", winParam);
+    const settings = {
+        clientID: '<CLIENT_ID>',
+        clientToken: '<TOKEN>',
+        stages: [
+        {
+            name: 'intro',
+            heading: 'Am from Cordova',
+            message: 'A message for our users',
         },
-                    function(error) {
-                        console.log("Complycube error", Object.keys(error));
-                    },
-                    "ComplyCube",
-                    "mount",
-                    [settings]);
-    }, 2000);
+        {
+            name: 'documentCapture',
+            documentTypes: {
+            passport: true,
+            national_identity_card: ['GB', 'FR', 'DZ'],
+            },
+        },
+        'faceCapture',
+        ],
+
+    }
+    console.log("Plugin functions I have", cordova)
+    var complycube = cordova.require("complycube-sdk-cordova.ComplyCube");
+
+    complycube.start(
+        settings,
+        (results) => console.log("Success"), 
+        (cancel_event) => console.log("Cancel event fired"), 
+        (error_event) => console.log("Error event fired"), 
+        (custom_event) => console.log("Custom event fired"), 
+        (token_event) => console.log("Token expiry event fired"));
+
+
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }
