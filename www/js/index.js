@@ -24,19 +24,19 @@ document.addEventListener('deviceready', onDeviceReady, false);
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
     const settings = {
-        clientID: '<CLIENT_ID>',
-        clientToken: '<TOKEN>',
+        clientID: 'CLIENT_ID',
+        clientToken: 'CLIENT_TOKEN',
         stages: [
         {
             name: 'intro',
-            heading: 'Am from Cordova',
-            message: 'A message for our users',
+            heading: 'Custom Screen Title',
+            message: 'Custom welcome message.',
         },
         {
             name: 'documentCapture',
             documentTypes: {
             passport: true,
-            national_identity_card: ['GB', 'FR', 'DZ'],
+            national_identity_card: ['GB', 'US'],
             },
         },
         'faceCapture',
