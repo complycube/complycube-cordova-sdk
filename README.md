@@ -43,7 +43,7 @@ For **Windows** users, this file can be found at `C:\Users\{username}\.npmrc`.
 
 1. [Create a Client ID](https://docs.complycube.com/documentation/guides/mobile-sdk-guide/mobile-sdk-integration-guide#id-2.-create-a-client).
 2. [Generate an SDK token](https://docs.complycube.com/documentation/guides/mobile-sdk-guide/mobile-sdk-integration-guide#id-3.-generate-an-sdk-token).
-3. In the `App.jsx` file, replace `CLIENT_ID` and `SDK_TOKEN` with the generated values from the previous steps.
+3. In the `www/js/index.js` file, replace `CLIENT_ID` and `CLIENT_TOKEN` with the generated values from the previous steps.
 4. Run the Android app:
 
    ```bash
